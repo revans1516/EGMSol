@@ -1,0 +1,41 @@
+﻿<Window x:Class="EGM_Tester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EGM_Tester"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="X" FontSize="28" Grid.Row="0"/>
+		<TextBlock Text="Y" FontSize="28" Grid.Row="1"/>
+		<TextBlock Text="Z" FontSize="28" Grid.Row="2"/>
+
+		<Slider x:Name="sldPosx" Grid.Column="1" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderx}"/>
+		<Slider x:Name="sldPosy" Grid.Column="1" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Slidery}"/>
+		<Slider x:Name="sldPosz" Grid.Column="1" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderz}"/>
+
+		<TextBlock Text="RX" Grid.Column="2" FontSize="28" Grid.Row="0"/>
+		<TextBlock Text="RY" Grid.Column="2" FontSize="28" Grid.Row="1"/>
+		<TextBlock Text="RZ" Grid.Column="2" FontSize="28" Grid.Row="2"/>
+
+		<Slider x:Name="sldPosrx" Grid.Column="3" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderrx}"/>
+		<Slider x:Name="sldPosry" Grid.Column="3" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderry}"/>
+		<Slider x:Name="sldPosrz" Grid.Column="3" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderrz}"/>
+
+		<Button x:Name="btnStartSend" Grid.Column="1" Grid.Row="3" FontSize="28" Content="Start Sending" Click="btnStartSend_Click"/>
+
+	</Grid>
+</Window>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM_6_08", "EGM608\EGM_6_08
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM_6_11", "EGM_6_11\EGM_6_11.csproj", "{6D39927D-CB50-4CC4-A800-DAF873E2C09E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGM Tester", "EGM Tester\EGM Tester.csproj", "{5399122E-F01B-43C5-B53A-3DD92BBEB276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6D39927D-CB50-4CC4-A800-DAF873E2C09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D39927D-CB50-4CC4-A800-DAF873E2C09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D39927D-CB50-4CC4-A800-DAF873E2C09E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5399122E-F01B-43C5-B53A-3DD92BBEB276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5399122E-F01B-43C5-B53A-3DD92BBEB276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5399122E-F01B-43C5-B53A-3DD92BBEB276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5399122E-F01B-43C5-B53A-3DD92BBEB276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

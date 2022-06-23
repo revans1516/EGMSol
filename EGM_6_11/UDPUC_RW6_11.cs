@@ -15,7 +15,7 @@ using Abb.Egm;
 namespace EGM_6_11
 {
 
-    class UDPUC_RW6_11
+    public class UDPUC_RW6_11
     {
         public enum MotionType
         {
