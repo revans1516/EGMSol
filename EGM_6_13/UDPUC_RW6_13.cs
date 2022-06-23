@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 using Abb.Egm;
 
 
-namespace EGM_6_11
+namespace EGM_6_13
 {
 
-    public class UDPUC_RW6_11
+    public class UDPUC_RW6_13
     {
         public enum MotionType
         {
@@ -43,7 +43,7 @@ namespace EGM_6_11
         public double[] CurrentPose = { 0, 0, 0, 1, 0, 0, 0 };
 
 
-        public UDPUC_RW6_11(int UDPPortNum, MotionType Move)
+        public UDPUC_RW6_13(int UDPPortNum, MotionType Move)
         {
             UDPPort = UDPPortNum;
             Move_Type = Move;
@@ -197,10 +197,10 @@ namespace EGM_6_11
             joint.Joints[3] = Joints[3];
             joint.Joints[4] = Joints[4];
             joint.Joints[5] = Joints[5];
-            
 
-            planned.Joints=(joint);
-            sensor.Planned=(planned); // bind planned to sensor object
+
+            planned.Joints = (joint);
+            sensor.Planned = (planned); // bind planned to sensor object
 
             return;
         }
@@ -217,7 +217,7 @@ namespace EGM_6_11
             while (_RunThread)
             {
                 var data = _UDPServer.Receive(ref remoteEP);
-				System.Diagnostics.Debug.WriteLine(data.Length);
+                System.Diagnostics.Debug.WriteLine(data.Length);
                 if (data != null)
                 {
                     GetCurrentPos(data);
@@ -244,7 +244,7 @@ namespace EGM_6_11
                         SensorMessage.WriteTo(codedOutputStream);
 
                         int bytesSent = _UDPServer.Send(MemStream.ToArray(), (int)MemStream.Length, remoteEP);
-                        
+
                     }
 
                 }

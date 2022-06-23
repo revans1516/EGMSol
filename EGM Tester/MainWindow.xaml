@@ -23,17 +23,17 @@
 		<TextBlock Text="Y" FontSize="28" Grid.Row="1"/>
 		<TextBlock Text="Z" FontSize="28" Grid.Row="2"/>
 
-		<Slider x:Name="sldPosx" Grid.Column="1" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderx}"/>
-		<Slider x:Name="sldPosy" Grid.Column="1" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Slidery}"/>
-		<Slider x:Name="sldPosz" Grid.Column="1" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderz}"/>
+		<Slider x:Name="sldPosx" Grid.Column="1" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		<Slider x:Name="sldPosy" Grid.Column="1" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		<Slider x:Name="sldPosz" Grid.Column="1" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Z, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 		<TextBlock Text="RX" Grid.Column="2" FontSize="28" Grid.Row="0"/>
 		<TextBlock Text="RY" Grid.Column="2" FontSize="28" Grid.Row="1"/>
 		<TextBlock Text="RZ" Grid.Column="2" FontSize="28" Grid.Row="2"/>
 
-		<Slider x:Name="sldPosrx" Grid.Column="3" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderrx}"/>
-		<Slider x:Name="sldPosry" Grid.Column="3" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderry}"/>
-		<Slider x:Name="sldPosrz" Grid.Column="3" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding Sliderrz}"/>
+		<Slider x:Name="sldPosrx" Grid.Column="3" Grid.Row="0" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding RX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		<Slider x:Name="sldPosry" Grid.Column="3" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding RY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+		<Slider x:Name="sldPosrz" Grid.Column="3" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding RZ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
 		<Button x:Name="btnStartSend" Grid.Column="1" Grid.Row="3" FontSize="28" Content="Start Sending" Click="btnStartSend_Click"/>
 

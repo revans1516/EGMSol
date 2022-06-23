@@ -119,14 +119,14 @@ namespace EGM_6_10
             // create a header
             EgmHeader.Builder hdr = new EgmHeader.Builder();
             EgmSpeedRef.Builder speedbuilder = new EgmSpeedRef.Builder();
-            EgmCartesianSpeed.Builder CartSpeed = new EgmCartesianSpeed.Builder();
+            //EgmCartesianSpeed.Builder CartSpeed = new EgmCartesianSpeed.Builder();
 
-            CartSpeed.SetValue(0, OptLinSpeed);
-            CartSpeed.SetValue(1, OptLinSpeed);
-            CartSpeed.SetValue(2, OptLinSpeed);
-            CartSpeed.SetValue(3, OptOrientSpeed);
-            CartSpeed.SetValue(4, OptOrientSpeed);
-            CartSpeed.SetValue(5, OptOrientSpeed);
+            //CartSpeed.SetValue(0, OptLinSpeed);
+            //CartSpeed.SetValue(1, OptLinSpeed);
+            //CartSpeed.SetValue(2, OptLinSpeed);
+            //CartSpeed.SetValue(3, OptOrientSpeed);
+            //CartSpeed.SetValue(4, OptOrientSpeed);
+            //CartSpeed.SetValue(5, OptOrientSpeed);
 
             hdr.SetSeqno(_SeqNumber++)
                 .SetTm((uint)DateTime.Now.Ticks)

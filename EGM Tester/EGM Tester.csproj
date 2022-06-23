@@ -64,6 +64,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BoundProperties.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -107,6 +108,10 @@
     <ProjectReference Include="..\EGM_6_11\EGM_6_11.csproj">
       <Project>{6d39927d-cb50-4cc4-a800-daf873e2c09e}</Project>
       <Name>EGM_6_11</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EGM_6_13\EGM_6_13.csproj">
+      <Project>{44407587-8462-4e21-a1f0-c2cf54f068cf}</Project>
+      <Name>EGM_6_13</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
