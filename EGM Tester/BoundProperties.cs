@@ -70,7 +70,141 @@ namespace EGM_Tester
                 OnPropertyChanged();
             }
         }
-        
+
+
+        private double _CurrX;
+        public double CurrX
+        {
+            get { return _CurrX; }
+            set
+            {
+                _CurrX = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _CurrY;
+        public double CurrY
+        {
+            get { return _CurrY; }
+            set
+            {
+                _CurrY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _CurrZ;
+        public double CurrZ
+        {
+            get { return _CurrZ; }
+            set
+            {
+                _CurrZ = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private double _CurrRX;
+        public double CurrRX
+        {
+            get { return _CurrRX; }
+            set
+            {
+                _CurrRX = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _CurrRY;
+        public double CurrRY
+        {
+            get { return _CurrRY; }
+            set
+            {
+                _CurrRY = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _CurrRZ;
+        public double CurrRZ
+        {
+            get { return _CurrRZ; }
+            set
+            {
+                _CurrRZ = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J1;
+        public double J1
+        {
+            get { return _J1; }
+            set
+            {
+                _J1 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J2;
+        public double J2
+        {
+            get { return _J2; }
+            set
+            {
+                _J2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J3;
+        public double J3
+        {
+            get { return _J3; }
+            set
+            {
+                _J3 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J4;
+        public double J4
+        {
+            get { return _J4; }
+            set
+            {
+                _J4 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J5;
+        public double J5
+        {
+            get { return _J5; }
+            set
+            {
+                _J5 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double _J6;
+        public double J6
+        {
+            get { return _J6; }
+            set
+            {
+                _J6 = value;
+                OnPropertyChanged();
+            }
+        }
+
         public BoundProperties()
         {
 

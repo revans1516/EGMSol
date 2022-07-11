@@ -41,6 +41,7 @@ namespace EGM_6_10
 
 
         public double[] CurrentPose = { 0, 0, 0, 1, 0, 0, 0 };
+        public double[] CurrentJoints = { 0, 0, 0, 0, 0, 0 };
 
 
         public UInt64 RobotTime
@@ -61,10 +62,18 @@ namespace EGM_6_10
         {
             PoseEular = new double[] { X, Y, Z, RX, RY, RZ };
         }
+        public void SetEularPose(System.Numerics.Vector3 Pos, System.Numerics.Vector3 Rotation)
+        {
+            PoseEular = new double[] { Pos.X, Pos.Y, Pos.Z, Rotation.X, Rotation.Y, Rotation.Z };
+        }
 
         public void SetOrientPose(double X, double Y, double Z, double RW, double RX, double RY, double RZ)
         {
             PoseQuat = new double[] { X, Y, Z, RW, RX, RY, RZ };
+        }
+        public void SetOrientPose(System.Numerics.Vector3 Pos, System.Numerics.Quaternion Orient)
+        {
+            PoseQuat = new double[] { Pos.X, Pos.Y, Pos.Z, Orient.W, Orient.X, Orient.Y, Orient.Z };
         }
 
         public void SetJoint(double J1, double J2, double J3, double J4, double J5, double J6)
@@ -168,14 +177,14 @@ namespace EGM_6_10
             // create a header
             EgmHeader.Builder hdr = new EgmHeader.Builder();
             EgmSpeedRef.Builder speedbuilder = new EgmSpeedRef.Builder();
-            EgmCartesianSpeed.Builder CartSpeed = new EgmCartesianSpeed.Builder();
+           // EgmCartesianSpeed.Builder CartSpeed = new EgmCartesianSpeed.Builder();
 
-            CartSpeed.SetValue(0, OptLinSpeed);
-            CartSpeed.SetValue(1, OptLinSpeed);
-            CartSpeed.SetValue(2, OptLinSpeed);
-            CartSpeed.SetValue(3, OptOrientSpeed);
-            CartSpeed.SetValue(4, OptOrientSpeed);
-            CartSpeed.SetValue(5, OptOrientSpeed);
+            //CartSpeed.SetValue(0, OptLinSpeed);
+            //CartSpeed.SetValue(1, OptLinSpeed);
+            //CartSpeed.SetValue(2, OptLinSpeed);
+            //CartSpeed.SetValue(3, OptOrientSpeed);
+            //CartSpeed.SetValue(4, OptOrientSpeed);
+            //CartSpeed.SetValue(5, OptOrientSpeed);
 
             hdr.SetSeqno(_SeqNumber++)
                 .SetTm((uint)DateTime.Now.Ticks)
@@ -269,6 +278,12 @@ namespace EGM_6_10
             robot.FeedBack.Cartesian.Orient.U1,
             robot.FeedBack.Cartesian.Orient.U2,
             robot.FeedBack.Cartesian.Orient.U3};
+
+			for (int i = 0; i < robot.FeedBack.Joints.JointsCount; i++)
+			{
+                CurrentJoints[i] = robot.FeedBack.Joints.JointsList[i];
+
+            }
             RobotTime = robot.FeedBack.Time.Usec;
 
 

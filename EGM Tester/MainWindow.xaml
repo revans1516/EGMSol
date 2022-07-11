@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EGM_Tester"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="auto"/>
@@ -35,7 +35,47 @@
 		<Slider x:Name="sldPosry" Grid.Column="3" Grid.Row="1" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding RY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 		<Slider x:Name="sldPosrz" Grid.Column="3" Grid.Row="2" FontSize="28" Minimum="-100" Maximum="100" Value="{Binding RZ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-		<Button x:Name="btnStartSend" Grid.Column="1" Grid.Row="3" FontSize="28" Content="Start Sending" Click="btnStartSend_Click"/>
+		<UniformGrid Grid.Row="3" Grid.ColumnSpan="2" Columns="1">
+			<Button x:Name="btnStartSend"  FontSize="28" Content="Start Sending Slider" Click="btnStartSend_Click"/>
+			<Button x:Name="btnStartLib" Grid.Column="3" Grid.Row="3" FontSize="28" Content="Start Liberty" Click="btnStartLib_Click"/>
+		</UniformGrid>
+
+		 
+			<GroupBox  Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Header="Robot Information" HorizontalAlignment="Stretch" FontSize="28">
+			<UniformGrid Columns="4">
+				<TextBlock Text="X"/>
+				<TextBlock Text="{Binding CurrX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J1"/>
+				<TextBlock Text="{Binding J1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<TextBlock Text="Y"/>
+				<TextBlock Text="{Binding CurrY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J2"/>
+				<TextBlock Text="{Binding J2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<TextBlock Text="Z"/>
+				<TextBlock Text="{Binding CurrZ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J3"/>
+				<TextBlock Text="{Binding J3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<TextBlock Text="RX"/>
+				<TextBlock Text="{Binding CurrRX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J4"/>
+				<TextBlock Text="{Binding J4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<TextBlock Text="RY"/>
+				<TextBlock Text="{Binding CurrRY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J5"/>
+				<TextBlock Text="{Binding J5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+				<TextBlock Text="RZ"/>
+				<TextBlock Text="{Binding CurrRZ, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+				<TextBlock Text="J6"/>
+				<TextBlock Text="{Binding J6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+			</UniformGrid>
+			</GroupBox>
+		
+		
 
 	</Grid>
 </Window>

@@ -59,9 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UDPUC_RW6_11.cs" />
     <Compile Include="Egm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UDPUC_RW6_13.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
