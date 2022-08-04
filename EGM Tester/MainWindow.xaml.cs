@@ -23,6 +23,8 @@ namespace EGM_Tester
 	{
 		System.Threading.Thread Testing_Thread;
 		System.Threading.Thread Lib_Thread;
+		ABB.Robotics.Controllers.Controller YumiController;
+		ABB.Robotics.Controllers.ControllerInfoCollection controllers;
 
 		Liberty.PlStream LibStream;
 
@@ -42,7 +44,15 @@ namespace EGM_Tester
 			this.DataContext = bp;
 			Testing_Thread = new System.Threading.Thread(EGMSender);
 			Lib_Thread = new System.Threading.Thread(LibSender);
-			
+
+			ABB.Robotics.Controllers.Discovery.NetworkScanner scanner = new ABB.Robotics.Controllers.Discovery.NetworkScanner();
+			ABB.Robotics.Controllers.Discovery.NetworkScanner.AddRemoteController("192.168.125.1");
+
+			scanner.Scan();
+
+
+			controllers = scanner.Controllers;
+
 
 			TestingSenderL = new EGM_6_10.UDPUC_RW6_10(6511, EGM_6_10.UDPUC_RW6_10.MotionType.Quaternion);
 			TestingSenderR = new EGM_6_10.UDPUC_RW6_10(6510, EGM_6_10.UDPUC_RW6_10.MotionType.Quaternion);
@@ -61,7 +71,9 @@ namespace EGM_Tester
 
 		private void LibSender()
 		{
-			
+			ABB.Robotics.Controllers.IOSystemDomain.DigitalSignal LeftGripGripper;
+			ABB.Robotics.Controllers.IOSystemDomain.DigitalSignal RightGripGripper;
+
 			System.Numerics.Vector3 StartLeftPos;
 			System.Numerics.Vector3 StartRightPos;
 			System.Numerics.Quaternion StartLeftOrient;
@@ -78,6 +90,13 @@ namespace EGM_Tester
 			System.Numerics.Vector3 RightPos;
 			System.Numerics.Quaternion RightOrient;
 			System.Numerics.Vector4 RightVec4;
+
+
+			YumiController = ABB.Robotics.Controllers.Controller.Connect(controllers[0],ABB.Robotics.Controllers.ConnectionType.Standalone);
+			LeftGripGripper = (ABB.Robotics.Controllers.IOSystemDomain.DigitalSignal)YumiController.IOSystem.GetSignal("doEGM_GripperL");
+			RightGripGripper = (ABB.Robotics.Controllers.IOSystemDomain.DigitalSignal)YumiController.IOSystem.GetSignal("doEGM_GripperR");
+
+
 
 			LibertyProcess = new System.Diagnostics.Process();
 			LibertyProcess.StartInfo.FileName = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("EGM Tester.exe", "") + "Liberty Interface/UnityExport.exe";
@@ -110,8 +129,8 @@ namespace EGM_Tester
 			{
 				LeftPos = LibStream.positions[0]-StartLeftPos;
 				RightPos = LibStream.positions[1]-StartRightPos;
-				LeftPos = new System.Numerics.Vector3(LeftPos.X, -LeftPos.Y, -LeftPos.Z);
-				RightPos = new System.Numerics.Vector3(RightPos.X, -RightPos.Y, -RightPos.Z);
+				//LeftPos = new System.Numerics.Vector3(LeftPos.X, LeftPos.Y, LeftPos.Z);
+				//RightPos = new System.Numerics.Vector3(RightPos.X, RightPos.Y, RightPos.Z);
 
 				LeftVec4 = LibStream.orientations[0];
 				RightVec4 = LibStream.orientations[1];
@@ -130,8 +149,12 @@ namespace EGM_Tester
 				LeftOrient = System.Numerics.Quaternion.Normalize(LeftOrient);
 				RightOrient= System.Numerics.Quaternion.Normalize(RightOrient);
 
-				LeftOrient = new System.Numerics.Quaternion(-LeftOrient.Z,-LeftOrient.Y, LeftOrient.X, LeftOrient.W);
-				RightOrient = new System.Numerics.Quaternion(-RightOrient.Z, -RightOrient.Y, RightOrient.X, RightOrient.W);
+				LeftOrient = new System.Numerics.Quaternion(-LeftOrient.Z,LeftOrient.Y, -LeftOrient.X, LeftOrient.W);
+				RightOrient = new System.Numerics.Quaternion(-RightOrient.Z, RightOrient.Y, -RightOrient.X, RightOrient.W);
+
+				LeftGripGripper.Value = LibStream.digio[0];
+				RightGripGripper.Value = LibStream.digio[1];
+
 
 				//LeftOrient = new System.Numerics.Quaternion(0, 0, 0, 1);
 				//RightOrient = new System.Numerics.Quaternion(0, 0, 0, 1);
