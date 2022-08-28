@@ -170,7 +170,7 @@ namespace EGM_Tester
 
 
 
-            while (RunLibStream && Loops < MaxRunTime / (CycleTime / 1000))
+            while (RunLibStream && Loops < MaxRunTime / ((double)CycleTime / 1000))
             {
                 LeftPos = LibStream.positions[0] - StartLeftPos;
                 RightPos = LibStream.positions[1] - StartRightPos;
