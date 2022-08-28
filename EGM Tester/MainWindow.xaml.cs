@@ -125,6 +125,14 @@ namespace EGM_Tester
         {
             int Loops = 0;
             int CycleTime = 4;
+            int MaxRunTime = 30;
+
+            Dispatcher.Invoke(() =>
+            {
+                MaxRunTime = necRuntime.Value;
+            });
+
+            
 
             System.Numerics.Vector3 StartLeftPos;
             System.Numerics.Vector3 StartRightPos;
@@ -162,7 +170,7 @@ namespace EGM_Tester
 
 
 
-            while (RunLibStream && Loops < necRuntime.Value / (CycleTime / 1000))
+            while (RunLibStream && Loops < MaxRunTime / (CycleTime / 1000))
             {
                 LeftPos = LibStream.positions[0] - StartLeftPos;
                 RightPos = LibStream.positions[1] - StartRightPos;
