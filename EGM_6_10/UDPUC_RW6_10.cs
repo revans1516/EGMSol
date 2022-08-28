@@ -121,6 +121,7 @@ namespace EGM_6_10
 
                 }
             }
+            _UDPServer.Close();
         }
 
         private void CreateEularMessage(EgmSensor.Builder sensor, double OptLinSpeed = -1, double OptOrientSpeed = -1)
