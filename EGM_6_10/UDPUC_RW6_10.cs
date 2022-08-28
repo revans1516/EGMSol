@@ -31,6 +31,7 @@ namespace EGM_6_10
 
         public MotionType Move_Type = MotionType.Joint;
         private Thread _SensorThread = null;
+        private UdpClient _UDPServer = null;
         private int UDPPort;
         private bool _RunThread = true;
         private uint _SeqNumber = 0;
@@ -84,7 +85,6 @@ namespace EGM_6_10
 
         private void UDPUCPoseThread()
         {
-            UdpClient _UDPServer;
 
             _UDPServer = new UdpClient(UDPPort);
 
@@ -121,7 +121,6 @@ namespace EGM_6_10
 
                 }
             }
-            _UDPServer.Dispose();
         }
 
         private void CreateEularMessage(EgmSensor.Builder sensor, double OptLinSpeed = -1, double OptOrientSpeed = -1)

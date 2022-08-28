@@ -222,6 +222,8 @@ namespace EGM_Tester
 
 
             StopEGM.Set();
+            TestingSenderL.Stop();
+            TestingSenderR.Stop();
 
         }
 
