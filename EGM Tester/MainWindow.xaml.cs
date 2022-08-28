@@ -194,8 +194,8 @@ namespace EGM_Tester
                 LeftOrient = System.Numerics.Quaternion.Normalize(LeftOrient);
                 RightOrient = System.Numerics.Quaternion.Normalize(RightOrient);
 
-                LeftOrient = new System.Numerics.Quaternion(-LeftOrient.Z, LeftOrient.Y, -LeftOrient.X, LeftOrient.W);
-                RightOrient = new System.Numerics.Quaternion(-RightOrient.Z, RightOrient.Y, -RightOrient.X, RightOrient.W);
+                LeftOrient = new System.Numerics.Quaternion(LeftOrient.X, LeftOrient.Y, LeftOrient.Z, LeftOrient.W);
+                RightOrient = new System.Numerics.Quaternion(RightOrient.X, RightOrient.Y, RightOrient.Z, RightOrient.W);
 
 
                 TestingSenderR.SetOrientPose(System.Numerics.Vector3.Multiply(RightPos, (float)25.4), RightOrient);
