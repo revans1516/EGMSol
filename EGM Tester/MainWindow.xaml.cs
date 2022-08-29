@@ -95,9 +95,12 @@ namespace EGM_Tester
                 }
                     
 
-                if (LibStream.digio[0] == 1 && LibStream.digio[1] == 1 && TimeCounter>300)
+                if (LibStream.digio[0] == 1 && LibStream.digio[1] == 1 && TimeCounter>300 && Lib_Thread.IsAlive==false)
                 {
                     StopEGM.Reset();
+                    Lib_Thread = new System.Threading.Thread(LibSender);
+                    Lib_Thread.Start();
+
                 }
                 System.Threading.Thread.Sleep(10);
             }
