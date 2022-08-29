@@ -102,6 +102,8 @@ namespace EGM_Tester
                     Lib_Thread.Start();
 
                 }
+                LeftGripGripper.Value = LibStream.digio[0];
+                RightGripGripper.Value = LibStream.digio[1];
                 System.Threading.Thread.Sleep(10);
             }
 
@@ -188,10 +190,6 @@ namespace EGM_Tester
                 RightOrient = new System.Numerics.Quaternion(-RightOrient.Z, RightOrient.Y, -RightOrient.X, RightOrient.W);
 
 
-                LeftGripGripper.Value = LibStream.digio[0];
-                RightGripGripper.Value = LibStream.digio[1];
-
-
                 TestingSenderR.SetOrientPose(System.Numerics.Vector3.Multiply(RightPos, (float)25.4), RightOrient);
                 TestingSenderL.SetOrientPose(System.Numerics.Vector3.Multiply(LeftPos, (float)25.4), LeftOrient);
 
@@ -249,6 +247,7 @@ namespace EGM_Tester
 
             TestingSenderL.Stop();
             TestingSenderR.Stop();
+            BackGroundThread.Abort();
         }
     }
 }
